@@ -103,7 +103,7 @@ podman run -d \
 DBHOST=paperless-db
 DBNAME=paperless
 DBUSER=paperless
-DBPASS=securepassword
+DBPASS=<your-secure-password>
 REDIS_URL=redis://paperless-redis:6379
 PAPERLESS_CONSUMPTION_DIR=/usr/src/paperless/src/consume
 PAPERLESS_MEDIA_ROOT=/usr/src/paperless/src/media
