@@ -10,3 +10,6 @@ __pycache__/
 # Logs und temporäre Dateien
 *.log
 *.tmp
+
+# tessdata (OCR-Sprachmodelle)
+tessdata/
