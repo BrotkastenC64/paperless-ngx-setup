@@ -108,8 +108,8 @@ REDIS_URL=redis://paperless-redis:6379
 PAPERLESS_CONSUMPTION_DIR=/usr/src/paperless/src/consume
 PAPERLESS_MEDIA_ROOT=/usr/src/paperless/src/media
 PAPERLESS_DATA_DIR=/usr/src/paperless/src/data
-PAPERLESS_UID=$(id -u master)
-PAPERLESS_GID=$(id -g master)
+PAPERLESS_UID=1000  # Ersetze mit: id -u master
+PAPERLESS_GID=1000  # Ersetze mit: id -g master
 ```
 
 ```bash
