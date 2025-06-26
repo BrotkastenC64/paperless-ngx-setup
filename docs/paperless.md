@@ -80,7 +80,7 @@ podman run --rm alpine echo "Podman OK"
 podman run -d \
   --name paperless-db \
   -e POSTGRES_USER=paperless \
-  -e POSTGRES_PASSWORD=securepassword \
+  -e POSTGRES_PASSWORD=<your-secure-password> \
   -e POSTGRES_DB=paperless \
   -v /opt/paperless/data/db:/var/lib/postgresql/data:Z \
   postgres:15-alpine
