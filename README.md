@@ -43,6 +43,15 @@ paperless/
 * ✅ **Einfach wartbar:** Automatisierung über `systemd` und saubere Trennung von Diensten.
 * ✅ **Flexibel:** Jeder Dienst wird separat gestartet und konfiguriert.
 
+### 🔑 Konfiguration der Umgebungsvariablen
+
+Vor dem Start der Container kopiere zunächst die `.env.example` und passe sie individuell an:
+
+```bash
+cp .env.example .env
+nano .env  # Passe deine Zugangsdaten sicher an
+```
+
 ## 🚀 Einstieg und Nutzung
 
 Starte mit der ausführlichen Dokumentation zu den zentralen Komponenten:
