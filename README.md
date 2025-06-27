@@ -43,6 +43,22 @@ paperless/
 * ✅ **Einfach wartbar:** Automatisierung über `systemd` und saubere Trennung von Diensten.
 * ✅ **Flexibel:** Jeder Dienst wird separat gestartet und konfiguriert.
 
+### 👤 Benutzer „master“ anlegen
+
+Für den rootless-Betrieb empfehlen wir einen dedizierten Linux-Benutzer, beispielsweise `master`.  
+Erstelle diesen Benutzer und vergib ein sicheres Passwort:
+
+```bash
+sudo adduser master
+# Optional: dem Benutzer sudo-Berechtigungen geben
+sudo usermod -aG sudo master
+```
+
+Danach mit diesem Benutzer anmelden:
+```bash
+su - master
+```
+
 ### 🔑 Konfiguration der Umgebungsvariablen
 
 Vor dem Start der Container kopiere zunächst die `.env.example` und passe sie individuell an.  

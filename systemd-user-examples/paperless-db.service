@@ -1,0 +1,19 @@
+[Unit]
+Description=Paperless NGX – PostgreSQL Container
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/podman rm -f paperless-db
+ExecStart=/usr/bin/podman run \
+  --name paperless-db \
+  --network paperless-net \
+  --env-file /opt/paperless/.env \
+  -v paperless_data:/var/lib/postgresql/data:Z \
+  docker.io/library/postgres:15-alpine
+ExecStop=/usr/bin/podman stop paperless-db
+ExecStopPost=/usr/bin/podman rm -f paperless-db
+
+[Install]
+WantedBy=default.target

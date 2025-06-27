@@ -1,0 +1,19 @@
+[Unit]
+Description=Paperless NGX – Redis Container
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/podman rm -f paperless-redis
+ExecStart=/usr/bin/podman run \
+  --name paperless-redis \
+  --network paperless-net \
+  -v paperless_redis:/data:Z \
+  docker.io/library/redis:7-alpine \
+  redis-server --save 60 1 --port 6379
+ExecStop=/usr/bin/podman stop paperless-redis
+ExecStopPost=/usr/bin/podman rm -f paperless-redis
+
+[Install]
+WantedBy=default.target

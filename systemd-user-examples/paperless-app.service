@@ -1,0 +1,25 @@
+[Unit]
+Description=Paperless NGX – Application Container
+Wants=paperless-db.service paperless-redis.service
+After=paperless-db.service paperless-redis.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/podman rm -f paperless-app
+ExecStart=/usr/bin/podman run \
+  --name paperless-app \
+  --network paperless-net \
+  --env-file /opt/paperless/.env \
+  -p 8000:8000 \
+  --userns=keep-id \
+  --user ${PAPERLESS_UID}:${PAPERLESS_GID} \
+  -v /var/scan:/usr/src/paperless/src/consume:Z \
+  -v /opt/paperless/media:/usr/src/paperless/src/media:Z \
+  -v paperless_app_data:/usr/src/paperless/src/data:Z \
+  -v ${HOME}/paperless/tessdata:/usr/share/tessdata:Z \
+  ghcr.io/paperless-ngx/paperless-ngx:latest
+ExecStop=/usr/bin/podman stop paperless-app
+ExecStopPost=/usr/bin/podman rm -f paperless-app
+
+[Install]
+WantedBy=default.target
