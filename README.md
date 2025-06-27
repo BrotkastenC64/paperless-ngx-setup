@@ -59,6 +59,17 @@ Danach mit diesem Benutzer anmelden:
 su - master
 ```
 
+### ⚙️ Systemd-Service-Dateien installieren (User-Modus)
+
+Kopiere die vorbereiteten Systemd-Dateien zur automatischen Verwaltung der Container in dein lokales Benutzerverzeichnis:
+
+```bash
+mkdir -p ~/.config/systemd/user
+cp systemd-user-examples/*.service ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now paperless-db.service paperless-redis.service paperless-app.service
+```
+
 ### 🔑 Konfiguration der Umgebungsvariablen
 
 Vor dem Start der Container kopiere zunächst die `.env.example` und passe sie individuell an.  

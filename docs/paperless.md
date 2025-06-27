@@ -72,6 +72,16 @@ Testcontainer:
 podman run --rm alpine echo "Podman OK"
 ```
 
+### 🔑 Konfiguration der Umgebungsvariablen
+
+Vor dem Start der Container kopiere zunächst die `.env.example` und passe sie individuell an.  
+Wichtig: Die finale Datei muss unter `/opt/paperless/.env` gespeichert werden:
+
+```bash
+sudo cp .env.example /opt/paperless/.env
+sudo nano /opt/paperless/.env  # Passe Zugangsdaten sicher an
+```
+
 ## Container starten
 
 ### PostgreSQL
