@@ -82,6 +82,19 @@ sudo cp .env.example /opt/paperless/.env
 sudo nano /opt/paperless/.env  # Passe Zugangsdaten sicher an
 ```
 
+### 🌐 Podman-Netzwerk „paperless-net“ erstellen
+
+Vor dem Start der Container über Systemd muss zunächst ein Podman-Netzwerk namens `paperless-net` erstellt werden:
+
+```bash
+podman network create paperless-net
+```
+
+Prüfe anschließend die erfolgreiche Erstellung:
+```bash
+podman network ls | grep paperless-net
+```
+
 ## Container starten
 
 ### PostgreSQL

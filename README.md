@@ -70,16 +70,6 @@ systemctl --user daemon-reload
 systemctl --user enable --now paperless-db.service paperless-redis.service paperless-app.service
 ```
 
-### 🔑 Konfiguration der Umgebungsvariablen
-
-Vor dem Start der Container kopiere zunächst die `.env.example` und passe sie individuell an.  
-Wichtig: Die finale Datei muss unter `/opt/paperless/.env` gespeichert werden:
-
-```bash
-sudo cp .env.example /opt/paperless/.env
-sudo nano /opt/paperless/.env  # Passe Zugangsdaten sicher an
-```
-
 ## 🚀 Einstieg und Nutzung
 
 Starte mit der ausführlichen Dokumentation zu den zentralen Komponenten:
